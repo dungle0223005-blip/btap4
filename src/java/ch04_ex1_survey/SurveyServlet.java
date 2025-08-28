@@ -15,6 +15,10 @@ public class SurveyServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        // Đảm bảo xử lý tiếng Việt đúng
+        request.setCharacterEncoding("UTF-8");
+
+        // Lấy dữ liệu từ form
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         String email = request.getParameter("email");
@@ -25,9 +29,11 @@ public class SurveyServlet extends HttpServlet {
         String contactVia = request.getParameter("contactVia");
         String emailUpdates = request.getParameter("emailUpdates");
 
+        // Xử lý checkbox nếu không được chọn
         if (wantsUpdates == null) wantsUpdates = "No";
         if (emailOK == null) emailOK = "No";
 
+        // Gửi dữ liệu sang JSP
         request.setAttribute("firstName", firstName);
         request.setAttribute("lastName", lastName);
         request.setAttribute("email", email);
@@ -38,6 +44,7 @@ public class SurveyServlet extends HttpServlet {
         request.setAttribute("contactVia", contactVia);
         request.setAttribute("emailUpdates", emailUpdates);
 
+        // Chuyển tiếp sang trang cảm ơn
         RequestDispatcher dispatcher = request.getRequestDispatcher("thanks.jsp");
         dispatcher.forward(request, response);
     }
