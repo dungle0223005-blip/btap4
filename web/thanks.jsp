@@ -1,8 +1,8 @@
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page isELIgnored="false" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Thank You</title>
     <link rel="stylesheet" href="styles/survey.css">
 </head>
@@ -13,8 +13,7 @@
         <h1>Thanks for taking our survey!</h1>
 
         <h2>Your information:</h2>
-        <p><strong>First Name:</strong> ${firstName}</p>
-        <p><strong>Last Name:</strong> ${lastName}</p>
+        <p><strong>Full Name:</strong> ${firstName} ${lastName}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Date of Birth:</strong> ${dob}</p>
 
