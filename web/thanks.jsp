@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
@@ -8,6 +7,8 @@
     <link rel="stylesheet" href="styles/survey.css">
 </head>
 <body>
+    <img src="images/murachlogo.jpg" alt="Murach Logo" class="logo">
+
     <form>
         <h1>Thanks for taking our survey!</h1>
 

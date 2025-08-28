@@ -15,7 +15,6 @@ public class SurveyServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Lấy dữ liệu từ form
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         String email = request.getParameter("email");
@@ -26,15 +25,9 @@ public class SurveyServlet extends HttpServlet {
         String contactVia = request.getParameter("contactVia");
         String emailUpdates = request.getParameter("emailUpdates");
 
-        // Xử lý giá trị checkbox nếu không được chọn
-        if (wantsUpdates == null) {
-            wantsUpdates = "No";
-        }
-        if (emailOK == null) {
-            emailOK = "No";
-        }
+        if (wantsUpdates == null) wantsUpdates = "No";
+        if (emailOK == null) emailOK = "No";
 
-        // Đặt thuộc tính để chuyển sang JSP
         request.setAttribute("firstName", firstName);
         request.setAttribute("lastName", lastName);
         request.setAttribute("email", email);
@@ -45,7 +38,6 @@ public class SurveyServlet extends HttpServlet {
         request.setAttribute("contactVia", contactVia);
         request.setAttribute("emailUpdates", emailUpdates);
 
-        // Chuyển tiếp sang thanks.jsp
         RequestDispatcher dispatcher = request.getRequestDispatcher("thanks.jsp");
         dispatcher.forward(request, response);
     }
@@ -53,12 +45,6 @@ public class SurveyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Nếu người dùng truy cập bằng GET, chuyển về index.html
         response.sendRedirect("index.html");
-    }
-
-    @Override
-    public String getServletInfo() {
-        return "SurveyServlet handles full form submission and forwards data to JSP.";
     }
 }
