@@ -1,5 +1,5 @@
-# Sử dụng Tomcat 9 với JDK 21 làm base image
-FROM tomcat:9-jdk21
+# Sử dụng Tomcat 9 với JDK 17 làm base image
+FROM tomcat:9-jdk17
 
 # Xóa các ứng dụng mặc định trong Tomcat
 RUN rm -rf /usr/local/tomcat/webapps/*
